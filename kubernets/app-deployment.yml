@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+   name: app-deployment
+   labels:
+     app: frontendservice
+spec:
+   replicas: 2
+   selector:
+      matchLabels:
+         app: frontendservice
+   template:
+       metadata:
+         labels:
+           app: frontendservice
+       spec:
+         containers:
+           - name: frontendservice
+             image: sereme98/parcial3-distribuidos:latest
+             ports:
+               - containerPort: 7000
