@@ -9,7 +9,7 @@ spec:
      app: frontendservice
    ports:
      - protocol: TCP
-       port: 7000
-       targetPort: 7000
+       port: 8082
+       targetPort: 8082
        name: http
    type: LoadBalancer

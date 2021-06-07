@@ -18,4 +18,4 @@ spec:
            - name: frontendservice
              image: sereme98/parcial3-distribuidos:latest
              ports:
-               - containerPort: 7000
+               - containerPort: 8082
