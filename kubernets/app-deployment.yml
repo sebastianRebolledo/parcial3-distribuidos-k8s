@@ -16,6 +16,12 @@ spec:
        spec:
          containers:
            - name: frontendservice
-             image: sereme98/parcial3-distribuidos:latest
+             image: sereme98/distribuidos3:0.0.1
+             livenessProbe:
+                 httpGet:
+                   path: /health
+                   port: 8080
+                 initialDelaySeconds: 5
+                 periodSeconds: 5
              ports:
                - containerPort: 8082
