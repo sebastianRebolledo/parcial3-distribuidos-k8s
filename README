@@ -52,7 +52,7 @@ $ kubectl apply -f  app-service.yml
 
 Verifique que los servicios estan corriendo asi:
 $ kubectl get services
-Debe encontrar los dos servicios que acabo de despelgar (app-service y redis)
+Debe encontrar los dos servicios que acabo de desplegar con los nombres app-service y redis con su respectiva IP
 Verifique que los pods esten corriendo asi:
 $ kubectl get pods
 Debe encontrar cuatro pods , dos pertenecientes al la base de datos y dos de la aplicacion con nombre db-deployment y para la base de datos app-deployment
