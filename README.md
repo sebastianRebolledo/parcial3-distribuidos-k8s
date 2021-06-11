@@ -60,11 +60,11 @@ Despues despliegue el servicio de la base de datos, la cual nos permitira conect
 $ kubectl apply -f database-service.yml
 ```
 
-AHora, despliegue la aplicacion de la misma manera
+Ahora, despliegue la aplicacion de la misma manera
 ```shell
 $ kubectl apply -f  app-deployment.yml
 ```
-AHora despliegue el servicio de la aplicacion, el cual buscara el servicio de la base de datos que ya fue desplegado en el paso anterior.
+Ahora despliegue el servicio de la aplicacion, el cual buscara el servicio de la base de datos que ya fue desplegado en el paso anterior.
 ```shell
 $ kubectl apply -f  app-service.yml
 ```
