@@ -16,7 +16,7 @@ spec:
        spec:
          containers:
            - name: frontendservice
-             image: sereme98/distribuidos3:0.0.2
+             image: sereme98/distribuidos3:0.0.3
              livenessProbe:
                  httpGet:
                    path: /health
