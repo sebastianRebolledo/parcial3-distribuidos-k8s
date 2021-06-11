@@ -1,6 +1,6 @@
-## DESPLIEGUE DE UNA APLICACION EN PYTHON Y UNA BASE DE DATOS REDI CON KUBERNETES
+##DESPLIEGUE DE UNA APLICACION EN PYTHON Y UNA BASE DE DATOS REDI CON KUBERNETES
 
-### Pasos para desplegar la applicacion:
+###Pasos para desplegar la applicacion:
 
 Los pasos a seguir y los paquetes descargados son ejemplo para un entorno local, especialmente usando una maquina ubuntu o linux.
 Las herramientas necesarias son:
