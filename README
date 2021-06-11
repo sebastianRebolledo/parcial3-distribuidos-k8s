@@ -1,50 +1,64 @@
+DESPLIEGUE DE UNA APLICACION EN PYTHON Y UNA BASE DE DATOS REDI CON KUBERNETES
+
 Pasos para desplegar la applicacion:
+
 Los pasos a seguir y los paquetes descargados son ejemplo para un entorno local, especialmente usando una maquina ubuntu o linux.
 Las herramientas necesarias son:
 * Kubernets (Minikube y kubectl)
 * Ansible
+* Docker
 
 1. Si la aplicacion se va a desplegar en un entorno local,como se va a utilizar kubernets es importante tener el software descargado en el computador.
 Para esto hay que tener un cluster local para poder desplegar la aplicacion. Hay varias opciones como micrk8s, minikube, etc. 
+Los archivos que que vamos a utilizar estan en formato yml, para esto debe instalar ansible. En este caso, ilustramos la manera para hacerlo en una maquina ubunut
+pero puede seguir los pasos si tiene otra maquina aqui : https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+
 Primero, instale el paquete ansible en su equipo, ya que desplegaremos archivos en este formato:
-sudo apt update
-sudo apt install ansible
+
+$sudo apt update
+$sudo apt install ansible
 
 
-* Ahora si,instale kubectl:
-snap install kubectl --classic
-kubectl version --client
+2. Ahora si,instale kubectl: Aqui encontrara los pasos exactos por Kubernetes para diferenetes maquinas : https://kubernetes.io/es/docs/tasks/tools/install-kubectl/
+Para este caso,usaremos estos comandos para una maquina ubuntu:
+$ snap install kubectl --classic
+$ kubectl version --client
 
-* Despues instale minikube el cual sera nuestro cluster local:
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-sudo install minikube-linux-amd64 /usr/local/bin/minikube
-minikube start
+3. A continuacion , debe instalar una herramienta que le permite tener un cluster en su maquina host, en este caso usaremos minikibue.
+Aqui podra encontrar los pasos exactos para instalarlo en una maquina diferente: https://minikube.sigs.k8s.io/docs/start/
+Para este caso de ilustracion, usaremos la instalacion para una maquina ubuntu:
+$ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+$ sudo install minikube-linux-amd64 /usr/local/bin/minikube
+Ahora, para poder inicializar el cluster en su maquina , debe ejecutar el siguiente comando:
+$ minikube start
+Verifique que se instalo bien realziando el comando:
+$ kubectl get po -A
 
-* Verifique que se instalo bien realziando el comando kubectl get pods.
 
-2. Despliegue la applicacion.
+4. A continuacion, se desplegara la aplicacion:
 Descargue este repositorio https://github.com/sebastianRebolledo/parcial3-distribuidos-k8s
 entre a la carpeta kubernets:
-cd kubernets
-* Primero, despligue los pods de la base de datos asi:
-kubectl apply -f database-deployment.yml
-* Despues despliegue el servicio de la base de datos, la cual nos permitira conectarnos con la aplicacion.
-kubectl apply -f database-service.yml
+$ cd kubernets
 
-* AHora, despliegue la aplicacion de la misma manera
-kubectl apply -f  app-deployment.yml
-* AHora despliegue el servicio de la aplicacion, el cual buscara el servicio de la base de datos que ya fue desplegado en el paso anterior.
-kubectl apply -f  app-service.yml
+Estando alli, debe ejecutar los pods. Primero, despligue los pods de la base de datos asi:
+$ kubectl apply -f database-deployment.yml
+Despues despliegue el servicio de la base de datos, la cual nos permitira conectarnos con la aplicacion.
+$ kubectl apply -f database-service.yml
 
-* Verifique que los servicios estan corriendo asi:
-kubectl get services
+AHora, despliegue la aplicacion de la misma manera
+$ kubectl apply -f  app-deployment.yml
+AHora despliegue el servicio de la aplicacion, el cual buscara el servicio de la base de datos que ya fue desplegado en el paso anterior.
+$ kubectl apply -f  app-service.yml
+
+Verifique que los servicios estan corriendo asi:
+$ kubectl get services
 Debe encontrar los dos servicios que acabo de despelgar (app-service y redis)
-* Verifique que los pods esten corriendo asi:
-kubectl get pods
+Verifique que los pods esten corriendo asi:
+$ kubectl get pods
 Debe encontrar cuatro pods , dos pertenecientes al la base de datos y dos de la aplicacion con nombre db-deployment y para la base de datos app-deployment
 
-* Ahora ejecute el comando :
-minikube service app-service
+Ahora ejecute el comando :
+$ minikube service app-service
 
 Se le abrira una ventana emergente y encontrara el mensaje Hello World k8s parcial distribuidos
 
