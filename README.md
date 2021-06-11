@@ -88,7 +88,7 @@ $ minikube service app-service
 Se le abrira una ventana emergente y encontrara el mensaje Hello World k8s parcial distribuidos
 
 
-## ¿ QUE HARIA SI PUSIERA EN PRODUCCION ESTA APLIACION CON KUBERNETS Y COMO PODRIA MEJORARLO SI TUVIERA MAS TIEMO ?
+## ¿ QUE HARIA SI PUSIERA EN PRODUCCION ESTA APLICACION CON KUBERNETS Y COMO PODRIA MEJORARLO SI TUVIERA MAS TIEMPO ?
 
 Para poner en produccion este servicio podria utilizar Helm, el cual es una herramienta que permite adminsitrar y desplegar nuestro cluster de una manera mas facil
 y mas organziada, evitando realizar los comandos manualmente que anteriormente describimos. Otra opcion seria utilizar plugins de Ansible como community k8s, el cual
