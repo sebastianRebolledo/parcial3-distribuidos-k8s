@@ -11,9 +11,14 @@ spec:
        metadata:
          labels:
            app: db-service
-       spec:
+       spec:                
          containers:
            - name: redis
              image: "redis:alpine"
+             command: 
+               - "redis-server"
+             args:
+               - "--protected-mode"
+               - "no"
              ports:
                - containerPort: 6379

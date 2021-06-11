@@ -25,8 +25,10 @@ $sudo apt install ansible
 
 -  Ahora si,instale kubectl: Aqui encontrara los pasos exactos por Kubernetes para diferenetes maquinas : https://kubernetes.io/es/docs/tasks/tools/install-kubectl/
 Para este caso,usaremos estos comandos para una maquina ubuntu:
-$ snap install kubectl --classic
-$ kubectl version --client
+```shell
+$snap install kubectl --classic
+$kubectl version --client
+```
 
 - A continuacion , debe instalar una herramienta que le permite tener un cluster en su maquina host, en este caso usaremos minikibue.
 Aqui podra encontrar los pasos exactos para instalarlo en una maquina diferente: https://minikube.sigs.k8s.io/docs/start/
